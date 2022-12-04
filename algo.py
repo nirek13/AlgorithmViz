@@ -8,7 +8,7 @@ class DrawInformation:
 	WHITE = 255, 255, 255
 	GREEN = 0, 255, 0
 	RED = 255, 0, 0
-	BACKGROUND_COLOR = WHITE
+	BACKGROUND_COLOR = BLACK
 
 	GRADIENTS = [
 		(128, 128, 128),
@@ -26,7 +26,7 @@ class DrawInformation:
 		self.width = width
 		self.height = height
 
-		self.window = pygame.display.set_mode((width, height))
+		self.window = pygame.display.set_mode((width, height) , pygame.RESIZABLE)
 		pygame.display.set_caption("Sorting Algorithm Visualization")
 		self.set_list(lst)
 
@@ -46,10 +46,10 @@ def draw(draw_info, algo_name, ascending):
 	title = draw_info.LARGE_FONT.render(f"{algo_name} - {'Ascending' if ascending else 'Descending'}", 1, draw_info.GREEN)
 	draw_info.window.blit(title, (draw_info.width/2 - title.get_width()/2 , 5))
 
-	controls = draw_info.FONT.render("R - Reset | SPACE - Start Sorting | A - Ascending | D - Descending", 1, draw_info.BLACK)
+	controls = draw_info.FONT.render("R - Reset | SPACE - Start Sorting | A - Ascending | D - Descending", 1, draw_info.WHITE)
 	draw_info.window.blit(controls, (draw_info.width/2 - controls.get_width()/2 , 45))
 
-	sorting = draw_info.FONT.render("I - Insertion Sort | B - Bubble Sort", 1, draw_info.BLACK)
+	sorting = draw_info.FONT.render("I - Insertion Sort | B - Bubble Sort", 1, draw_info.WHITE)
 	draw_info.window.blit(sorting, (draw_info.width/2 - sorting.get_width()/2 , 75))
 
 	draw_list(draw_info)
